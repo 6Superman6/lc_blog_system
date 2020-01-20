@@ -1,0 +1,216 @@
+[MENU]
+
+
+
+------
+
+####1.主页
+
+**localhost:8080/**
+
+
+> request（get）
+
+```
+无
+```
+
+> response
+
+success
+
+```
+{
+    "page" : [               
+		{
+
+			"id" : "博客id",
+			"title" : "标题",
+			"content":"内容",                   
+			"firstPicture" : "首图",
+			"views" : "游览次数",
+			"appreciation" : "赞赏是否开启",
+			"shareStatement" : "转载声明是否开启",
+			"recommend" : "推荐是否开启"
+			“type” : “类型",
+			"tags" : "标签",
+			"user" : "所属用户",
+			"comments" : "博客评论",
+			"tagIds" : "博客标签",
+			"description" : "博客描述"
+		}
+	],
+	types : "博客类型",
+	tags : "博客标签",
+	recommendBlogs : "被推荐的博客"
+}
+```
+
+------
+
+------
+
+####2.查看单个博客
+
+**localhost:8080/blog/{id}**
+
+> request（get）
+
+```
+id
+```
+
+> response
+
+success
+
+```
+blog:{
+
+		"id" : "博客id",
+		"title" : "标题",
+		"content":"内容",                   
+		"firstPicture" : "首图",
+		"views" : "游览次数",
+		"appreciation" : "赞赏是否开启",
+		"shareStatement" : "转载声明是否开启",
+		"recommend" : "推荐是否开启"
+		“type” : “类型",
+		"tags" : "标签",
+		"user" : "所属用户",
+		"comments" : "博客评论",
+		"tagIds" : "博客标签",
+		"description" : "博客描述"
+	}
+```
+
+fail
+
+```
+{
+	blog : null
+}
+```
+
+####3.前台主页搜索
+
+**localhost:8080/search**
+
+> request（post）
+
+```
+query
+```
+
+> response
+
+success
+
+```
+{
+    "page" : [               
+		{
+
+			"id" : "博客id",
+			"title" : "标题",
+			"content":"内容",                   
+			"firstPicture" : "首图",
+			"views" : "游览次数",
+			"appreciation" : "赞赏是否开启",
+			"shareStatement" : "转载声明是否开启",
+			"recommend" : "推荐是否开启"
+			“type” : “类型",
+			"tags" : "标签",
+			"user" : "所属用户",
+			"comments" : "博客评论",
+			"tagIds" : "博客标签",
+			"description" : "博客描述"
+		}
+	]
+}
+```
+
+####4.查看所有的博客类型
+
+**localhost:8080/types/{id}**
+
+> request（get）
+
+```
+id
+```
+
+> response
+
+success
+
+```
+{
+	types : "博客所有类型",
+	activeTypeId : "当前类型id",
+    "page" : [               
+		{
+
+			"id" : "博客id",
+			"title" : "标题",
+			"content":"内容",                   
+			"firstPicture" : "首图",
+			"views" : "游览次数",
+			"appreciation" : "赞赏是否开启",
+			"shareStatement" : "转载声明是否开启",
+			"recommend" : "推荐是否开启"
+			“type” : “类型",
+			"tags" : "标签",
+			"user" : "所属用户",
+			"comments" : "博客评论",
+			"tagIds" : "博客标签",
+			"description" : "博客描述"
+		}
+	]
+}
+```
+
+------
+
+------
+
+####4.查看所有的标签
+
+**localhost:8080/tags/{id}**
+
+> request（get）
+
+```
+id
+```
+
+> response
+
+success
+
+```
+{
+	tags : "博客所有标签",
+	activeTagId : "当前标签id",
+    "page" : [               
+		{
+
+			"id" : "博客id",
+			"title" : "标题",
+			"content":"内容",                   
+			"firstPicture" : "首图",
+			"views" : "游览次数",
+			"appreciation" : "赞赏是否开启",
+			"shareStatement" : "转载声明是否开启",
+			"recommend" : "推荐是否开启"
+			“type” : “类型",
+			"tags" : "标签",
+			"user" : "所属用户",
+			"comments" : "博客评论",
+			"tagIds" : "博客标签",
+			"description" : "博客描述"
+		}
+	]
+}
+```
+

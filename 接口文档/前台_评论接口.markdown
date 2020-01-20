@@ -1,0 +1,102 @@
+[MENU]
+
+
+
+------
+
+####1.获取该博客所有的评论
+
+**localhost:8080/comments/{blogId}**
+
+
+> request（get）
+
+```
+blogId
+```
+
+> response
+
+success
+
+```
+{
+    "comments" : [               
+		{
+
+			"id" : "评论id",
+			"nickname" : "昵称",
+			"email":"邮箱",                   
+			"content" : "评论内容",
+			"avatar" : "头像",
+			"createTime" : "创建时间",
+			"blog" : "所属博客",
+			"user" : "所属用户"
+			“replyComments” : “评论树",
+			"parentComment" : "根评论",
+			"adminComment" : "根评论"
+		}
+	],
+}
+```
+
+------
+
+------
+
+####2.添加评论
+
+**localhost:8080/comments**
+
+> request（post）
+
+```
+content,nickname,email
+```
+
+> response
+
+success
+
+```
+{
+	"message" : "添加成功"
+}
+```
+
+fail
+
+```
+{
+	"message" : "添加失败"
+}
+```
+
+####3.删除评论
+
+**localhost:8080/delcomment/{id}**
+
+> request（get）
+
+```
+id
+```
+
+> response
+
+success
+
+```
+{
+    "message" : "删除成功"
+}
+```
+
+fail
+
+```
+{
+    "message" : "删除失败"
+}
+```
+

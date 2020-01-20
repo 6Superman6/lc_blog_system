@@ -1,0 +1,166 @@
+[MENU]
+
+## 需要管理员权限
+
+####1.获取所有的博客分类（get）
+
+**localhost:8080/admin/types**  
+
+> request
+
+```
+无
+```
+
+> response
+
+fail
+
+```
+{
+    "page" : null
+}
+```
+
+success
+
+```
+{
+    "page" : [               
+		{
+			"id" : "分类id",
+			"name" : "分类名称"
+		}
+	],
+}
+```
+
+------
+
+####2.获取一个分类信息（get）
+**localhost:8080/admin/types/{id}/input**
+
+> request
+
+```
+id
+```
+
+> response
+
+success
+
+```
+{
+    "type" : {
+			"id" : "分类id",
+			"name" : "分类名称"
+		}
+}
+```
+
+------
+
+####3.新增分类  （post）
+
+**localhost:8080/admin/types**
+
+> request（post）
+
+```
+id,name
+
+```
+
+> response
+
+success
+
+```
+{
+    "message": "新增成功"
+}
+
+```
+
+fail
+
+```
+{
+    "message": "新增失败"
+}
+
+{
+    "nameError": "不能添加重复的分类"
+}
+
+```
+
+------
+
+####4.更新分类  （post）
+
+**localhost:8080/admin/types/{id}**
+
+> request（post）
+
+```
+id,name
+
+```
+
+> response
+
+success
+
+```
+{
+    "message": "更新成功"
+}
+
+```
+
+fail
+
+```
+{
+    "message": "更新失败"
+}
+
+{
+    "nameError": "不能添加重复的分类"
+}
+
+```
+
+------
+
+####5. 删除某一个分类（get）
+
+**localhost:8080/admin/types/{id}/delete**
+
+> request
+
+```
+id
+```
+
+> response
+
+success
+
+```
+{
+    "message": "修改成功"
+}
+
+```
+
+fail
+
+```
+{
+    "message": "删除失败"
+}
+
+```

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="admin/_fragments :: head(~{::title})">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>修改某个用户的权限</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+  <link rel="stylesheet" href="../../static/css/me.css">
+</head>
+<body>
+
+<br>
+<br>
+<br>
+ <div class="m-container-small m-padded-tb-massive" style="max-width: 30em !important;">
+   <div class="ur container">
+     <div class="ui middle aligned center aligned grid">
+       <div class="column">
+         <h2 class="ui teal image header">
+           <div class="content">
+             修改某个用户的权限
+           </div>
+         </h2>
+         <form class="ui large form" method="post" action="#" th:action="@{/admin/uppower}">
+           <div class="ui  segment">
+             <div class="field">
+               <div class="ui left icon input">
+                 <i class="user icon"></i>
+                 <input type="text" name="username" placeholder="用户名" required>
+               </div>
+             </div>
+               <div class="field">
+                 <div class="ui left icon input">
+                   <i class="user icon"></i>
+                   <select name="type" required>
+                     <option>--请选择权限--</option>
+                     <option value="1">管理员</option>
+                     <option value="0">用户</option>
+                   </select>
+                 </div>
+               </div>
+             <button class="ui fluid large teal submit button">修   改</button>
+             <h3><a href="/admin/index" style="color:white" class="ui fluid large teal submit button"><strong>返回</strong></a></h3>
+           </div>
+
+           <div class="ui error mini message"></div>
+           <div id="ccccc" class="ui mini negative message" th:unless="${#strings.isEmpty(message)}" th:text="${message}">更新失败</div>
+           <!--让提示框在5秒后消失-->
+           <script type="text/javascript">
+               setTimeout(function(){document.getElementById("ccccc").style.display="none";},5000);
+           </script>
+           <!--让提示框在3秒后消失-->
+
+         </form>
+
+       </div>
+     </div>
+   </div>
+ </div>
+
+<!--/*/<th:block th:replace="_fragments :: script">/*/-->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+<!--/*/</th:block>/*/-->
+
+<!--<script>-->
+  <!--$('.ui.form').form({-->
+    <!--fields : {-->
+        <!--id : {-->
+        <!--identifier: 'id',-->
+        <!--rules: [{-->
+          <!--type : 'empty',-->
+          <!--prompt: '请输入用户id'-->
+        <!--}]-->
+      <!--}-->
+    <!--}-->
+  <!--});-->
+<!--</script>-->
+
+</body>
+</html>

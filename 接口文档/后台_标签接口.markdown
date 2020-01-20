@@ -1,0 +1,166 @@
+[MENU]
+
+## 需要管理员权限
+
+####1.获取所有的博客标签（get）
+
+**localhost:8080/admin/tags**  
+
+> request
+
+```
+无
+```
+
+> response
+
+fail
+
+```
+{
+    "page" : null
+}
+```
+
+success
+
+```
+{
+    "page" : [               
+		{
+			"id" : "标签id",
+			"name" : "标签名称"
+		}
+	],
+}
+```
+
+------
+
+####2.获取一个标签信息（get）
+**localhost:8080/admin/tags/{id}/input**
+
+> request
+
+```
+id
+```
+
+> response
+
+success
+
+```
+{
+    "tag" : {
+			"id" : "标签id",
+			"name" : "标签名称"
+		}
+}
+```
+
+------
+
+####3.新增标签 （post）
+
+**localhost:8080/admin/tags**
+
+> request（post）
+
+```
+id,name
+
+```
+
+> response
+
+success
+
+```
+{
+    "message": "新增成功"
+}
+
+```
+
+fail
+
+```
+{
+    "message": "新增失败"
+}
+
+{
+    "nameError": "不能添加重复的标签"
+}
+
+```
+
+------
+
+####4.更新标签  （post）
+
+**localhost:8080/admin/tags/{id}**
+
+> request（post）
+
+```
+id,name
+
+```
+
+> response
+
+success
+
+```
+{
+    "message": "更新成功"
+}
+
+```
+
+fail
+
+```
+{
+    "message": "更新失败"
+}
+
+{
+    "nameError": "不能添加重复的标签"
+}
+
+```
+
+------
+
+####5. 删除某一个标签（get）
+
+**localhost:8080/admin/tags/{id}/delete**
+
+> request
+
+```
+id
+```
+
+> response
+
+success
+
+```
+{
+    "message": "修改成功"
+}
+
+```
+
+fail
+
+```
+{
+    "message": "删除失败"
+}
+
+```

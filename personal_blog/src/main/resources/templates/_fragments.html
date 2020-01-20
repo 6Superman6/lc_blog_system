@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:fragment="head(title)">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title th:replace="${title}">博客详情</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+  <link rel="stylesheet" href="../static/css/typo.css" th:href="@{/css/typo.css}">
+  <link rel="stylesheet" href="../static/css/animate.css" th:href="@{/css/animate.css}">
+  <link rel="stylesheet" href="../static/lib/prism/prism.css" th:href="@{/lib/prism/prism.css}">
+  <link rel="stylesheet" href="../static/lib/tocbot/tocbot.css" th:href="@{/lib/tocbot/tocbot.css}">
+  <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}">
+  <link rel="stylesheet" href="../static/lib/editormd/css/editormd.min.css" th:href="@{/lib/editormd/css/editormd.min.css}">
+</head>
+<body>
+
+
+<!--导航-->
+<nav th:fragment="menu(n)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small" >
+  <div class="ui container">
+    <div class="ui inverted secondary stackable menu">
+      <h2 class="ui teal header item">LC博客</h2>
+      <a href="#" th:href="@{${#httpServletRequest.getContextPath()}+'/'}" class="m-item item m-mobile-hide " th:classappend="${n==1} ? 'active'"><i class="mini home icon"></i>首页</a>
+      <a href="#" th:href="@{${#httpServletRequest.getContextPath()}+'/types/-1'}" class="m-item item m-mobile-hide" th:classappend="${n==2} ? 'active'"><i class="mini idea icon"></i>分类</a>
+      <a href="#" th:href="@{${#httpServletRequest.getContextPath()}+'/tags/-1'}" class="m-item item m-mobile-hide" th:classappend="${n==3} ? 'active'"><i class="mini tags icon"></i>标签</a>
+      <a href="#" th:href="@{${#httpServletRequest.getContextPath()}+'/archives'}" class="m-item item m-mobile-hide" th:classappend="${n==4} ? 'active'"><i class="mini clone icon"></i>归档</a>
+      <a href="#" th:href="@{${#httpServletRequest.getContextPath()}+'/before/blogs'}" class="m-item item m-mobile-hide" th:classappend="${n==5} ? 'active'"><i class="mini info icon"></i>我的博客</a>
+      <div class="right m-item item m-mobile-hide">
+        <form name="search" action="#" th:action="@{${#httpServletRequest.getContextPath()}+'/search'}" method="post" target="_self">
+          <div class="ui icon inverted transparent input m-margin-tb-tiny">
+            <input type="text" name="query" placeholder="Search...." th:value="${query}">
+            <i onclick="document.forms['search'].submit()" class="search link icon"></i>
+          </div>
+        </form>
+      </div>
+      <div class="right m-item m-mobile-hide menu">
+        <div class="ui dropdown  item">
+          <div class="text" th:switch="${session.user != null }">
+            <i th:case="true">
+              <img class="ui avatar image" src="http://47.94.10.228/uploads/beijing.png" th:src="@{${session.user.avatar}}">
+              <!--<span th:text="${session.user.nickname}">超哥</span>-->
+              <select style="color:white;background-color:#1B1C1D;border-color:#1B1C1D" onchange="check(this.value);" >
+                <option style="color:white;" value="用户" th:value="${session.user.nickname}" th:text="${session.user.nickname}" selected>用户</option>
+                <option style="color:white;" value="注销">注销</option>
+                <option style="color:white;" value="修改个人信息">修改个人信息</option>
+              </select>
+              <script type="text/javascript">
+                  function check(obj){
+                      if(obj=="注销"){
+                          window.open("/before/logout","_self");
+                      }else if(obj=="修改个人信息"){
+                          window.open("/before/up","_self");
+                      }
+                  }
+              </script>
+            </i>
+            <i th:case="false">
+              <img class="ui avatar image" src="http://47.94.10.228/uploads/beijing.png">
+              <span>用户</span>
+            </i>
+          </div>
+        </div>
+      </div>
+      <a class="deng6lu" th:switch="${session.user == null }">
+        <a th:case="true">
+          <a href="#" th:href="@{${#httpServletRequest.getContextPath()}+'/before'}" class="m-item item m-mobile-hide">登录</a>
+          <a href="#" th:href="@{${#httpServletRequest.getContextPath()}+'/before/reg'}" class="m-item item m-mobile-hide">注册</a>
+        </a>
+        <i th:case="false">
+
+        </i>
+    </a>
+  </div>
+  </div>
+  <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
+    <i class="sidebar icon"></i>
+  </a>
+</nav>
+
+
+
+<!--底部footer-->
+<footer th:fragment="footer" class="ui inverted vertical segment m-padded-tb-massive">
+  <div class="ui center aligned container">
+    <div class="ui inverted divided stackable grid">
+      <div class="three wide column">
+        <div class="ui inverted link list">
+          <div class="item">
+            <img src="../static/images/wechat.jpg" th:src="@{/images/wechat.jpg}"  class="ui rounded image" alt="" style="width: 110px">
+          </div>
+        </div>
+      </div>
+      <div class="three wide column" >
+        <h4 class="ui inverted header m-text-thin m-text-spaced " >最新博客</h4>
+        <div id="newblog-container">
+          <div class="ui inverted link list" th:fragment="newblogList">
+            <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="item m-text-thin" th:each="blog : ${newblogs}" th:text="${blog.title}">用户故事（User Story）</a>
+            <!--/*-->
+            <a href="#" class="item m-text-thin">用户故事（User Story）</a>
+            <a href="#" class="item m-text-thin">用户故事（User Story）</a>
+            <!--*/-->
+          </div>
+        </div>
+      </div>
+      <div class="three wide column">
+        <h4 class="ui inverted header m-text-thin m-text-spaced ">联系我</h4>
+        <div class="ui inverted link list">
+          <a href="#" class="item m-text-thin" th:text="#{index.email}">Email：465445097@qq.com</a>
+          <a href="#" class="item m-text-thin">QQ：465445097</a>
+        </div>
+      </div>
+      <div class="seven wide column">
+        <h4 class="ui inverted header m-text-thin m-text-spaced ">LC博客</h4>
+        <p class="m-text-thin m-text-spaced m-opacity-mini">这是我的博客网站、会分享关于编程、写作、思考相关的任何内容，希望可以给来到这儿的人有所帮助...</p>
+      </div>
+    </div>
+    <div class="ui inverted section divider"></div>
+    <p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright © 2019 - <span th:text="${#dates.year(#dates.createNow())}">2020</span> chaoge Designed by chaoge</p>
+  </div>
+
+</footer>
+
+<th:block th:fragment="script">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery.scrollto@2.1.2/jquery.scrollTo.min.js"></script>
+  <script src="../static/lib/prism/prism.js" th:src="@{/lib/prism/prism.js}"></script>
+  <script src="../static/lib/tocbot/tocbot.min.js" th:src="@{/lib/tocbot/tocbot.min.js}"></script>
+  <script src="../static/lib/qrcode/qrcode.min.js" th:src="@{/lib/qrcode/qrcode.min.js}"></script>
+  <script src="../static/lib/waypoints/jquery.waypoints.min.js" th:src="@{/lib/waypoints/jquery.waypoints.min.js}"></script>
+  <script>
+      $('#newblog-container').load(/*[[@{/footer/newblog}]]*/"/footer/newblog");
+  </script>
+</th:block>
+
+</body>
+</html>

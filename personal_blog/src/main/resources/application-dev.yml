@@ -1,0 +1,21 @@
+# 开发环境配置文件
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/blog?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+  jpa:
+    hibernate:
+      ddl-auto: update   #如果实体类做了更改会同步更新数据库中表结构
+    show-sql: true       # 把sql语句输出到控制台和日志文件里面
+# jpa 简化了数据库的连接工作以及简化了所有和数据库相关的工作
+
+# 日志配置
+logging:
+  level:
+    root: info
+    demo: debug
+  file: log/blog-dev.log   # 会在当前项目下创建
+
+

@@ -1,0 +1,28 @@
+[MENU]
+
+
+
+------
+
+####1.归档
+
+**localhost:8080/archives**
+
+
+> request（get）
+
+```
+无
+```
+
+> response
+
+success
+
+```
+{
+    "archiveMap" : "按年分类的博客信息",
+    "blogCount" : "总博客的个数"
+}
+```
+

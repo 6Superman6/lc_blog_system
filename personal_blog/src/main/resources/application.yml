@@ -1,0 +1,11 @@
+spring:
+  thymeleaf:
+    mode: HTML
+  profiles:
+    active: dev   # 使用开发环境配置
+  messages:
+    basename: i18n/messages
+
+comment.avatar: /images/avatar.png
+server:
+  port: 8080

@@ -1,0 +1,235 @@
+
+
+[MENU]
+
+
+
+------
+
+####1.博客分类查询
+
+**localhost:8080/before/blogs/search**
+
+
+> request（post）
+
+```
+title,typeId,recommend
+```
+
+> response
+
+success
+
+```
+{
+    "page" : [               
+	{
+
+		"id" : "博客id",
+		"title" : "标题",
+		"content":"内容",                   
+		"firstPicture" : "首图",
+		"views" : "游览次数",
+		"appreciation" : "赞赏是否开启",
+		"shareStatement" : "转载声明是否开启",
+		"recommend" : "推荐是否开启"
+		“type” : “类型",
+		"tags" : "标签",
+		"user" : "所属用户",
+		"comments" : "博客评论",
+		"tagIds" : "博客标签",
+		"description" : "博客描述"
+	}
+
+	]
+}
+```
+
+------
+
+####2.添加和更新博客
+
+**localhost:8080/before/blogs**
+
+
+> request（post）
+
+```
+title,content,type.id,tagIds,firstPicture2,description,recommend,shareStatement,appreciation,commentabled
+```
+
+> response
+
+success
+
+```
+{
+    "message": "操作成功"
+}
+
+
+```
+
+fail
+```
+{
+    "message": "操作失败"
+}
+```
+
+------
+
+####3.删除博客
+
+**localhost:8080/before/blogs/{id}/delete**
+
+> request（get）
+
+```
+id
+```
+
+> response
+
+success
+
+```
+{
+	"message" : "删除成功"
+}
+```
+
+####4.根据id获取一个Blog信息，为更新做准备
+
+**localhost:8080/before/blogs/{id}/input**
+
+> request（get）
+
+```
+id
+```
+
+> response
+
+success
+
+```
+blog:{
+
+		"id" : "博客id",
+		"title" : "标题",
+		"content":"内容",                   
+		"firstPicture" : "首图",
+		"views" : "游览次数",
+		"appreciation" : "赞赏是否开启",
+		"shareStatement" : "转载声明是否开启",
+		"recommend" : "推荐是否开启"
+		“type” : “类型",
+		"tags" : "标签",
+		"user" : "所属用户",
+		"comments" : "博客评论",
+		"tagIds" : "博客标签",
+		"description" : "博客描述"
+	}
+```
+
+fail
+```
+{
+	blog : null
+}
+```
+
+------
+
+####5.我的博客
+
+**localhost:8080/before/blogs**
+
+> request（get）
+
+```
+无
+```
+
+> response
+
+success
+
+```
+{
+	types : "博客类型",
+	blog:{
+
+		"id" : "博客id",
+		"title" : "标题",
+		"content":"内容",                   
+		"firstPicture" : "首图",
+		"views" : "游览次数",
+		"appreciation" : "赞赏是否开启",
+		"shareStatement" : "转载声明是否开启",
+		"recommend" : "推荐是否开启"
+		“type” : “类型",
+		"tags" : "标签",
+		"user" : "所属用户",
+		"comments" : "博客评论",
+		"tagIds" : "博客标签",
+		"description" : "博客描述"
+	}
+}
+```
+
+fail
+
+```
+{
+	types : "博客类型",
+	blog : null
+}
+```
+
+------
+
+####6.查看单个博客
+
+**localhost:8080/blog/{id}**
+
+> request（get）
+
+```
+id
+```
+
+> response
+
+success
+
+```
+blog:{
+
+		"id" : "博客id",
+		"title" : "标题",
+		"content":"内容",                   
+		"firstPicture" : "首图",
+		"views" : "游览次数",
+		"appreciation" : "赞赏是否开启",
+		"shareStatement" : "转载声明是否开启",
+		"recommend" : "推荐是否开启"
+		“type” : “类型",
+		"tags" : "标签",
+		"user" : "所属用户",
+		"comments" : "博客评论",
+		"tagIds" : "博客标签",
+		"description" : "博客描述"
+	}
+```
+
+fail
+
+```
+{
+	blog : null
+}
+```
+

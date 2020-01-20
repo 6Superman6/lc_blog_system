@@ -1,0 +1,23 @@
+# 生产环境配置文件
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/blog?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+  jpa:
+    hibernate:
+      ddl-auto: none   #如果实体类做了更改不会动用数据库中表结构
+    show-sql: true
+
+logging:
+  level:
+    root: warn
+    demo: info
+  file: log/blog-pro.log
+
+
+
+
+
+
