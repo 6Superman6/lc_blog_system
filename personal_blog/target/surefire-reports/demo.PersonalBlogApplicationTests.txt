@@ -1,13 +1,13 @@
 -------------------------------------------------------------------------------
 Test set: demo.PersonalBlogApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.088 s <<< FAILURE! - in demo.PersonalBlogApplicationTests
+Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.114 s <<< FAILURE! - in demo.PersonalBlogApplicationTests
 initializationError(demo.PersonalBlogApplicationTests)  Time elapsed: 0.008 s  <<< ERROR!
 java.lang.Exception: The class demo.PersonalBlogApplicationTests is not public.
 
-initializationError(demo.PersonalBlogApplicationTests)  Time elapsed: 0 s  <<< ERROR!
+initializationError(demo.PersonalBlogApplicationTests)  Time elapsed: 0.005 s  <<< ERROR!
 java.lang.Exception: Test class should have exactly one public constructor
 
-initializationError(demo.PersonalBlogApplicationTests)  Time elapsed: 0.001 s  <<< ERROR!
+initializationError(demo.PersonalBlogApplicationTests)  Time elapsed: 0 s  <<< ERROR!
 java.lang.Exception: Method contextLoads() should be public
 

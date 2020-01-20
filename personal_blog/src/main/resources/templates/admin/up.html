@@ -26,13 +26,13 @@
              <div class="field">
                <div class="ui left icon input">
                  <i class="user icon"></i>
-                 <input type="text" name="nickname" value="" th:value="${session.user.nickname}" required>
+                 <input type="text" name="nickname" autocomplete="off" value="" th:value="${session.user.nickname}" required>
                </div>
              </div>
              <div class="field">
                <div class="ui left icon input">
                  <i class="user icon"></i>
-                  <input type="text" name="username" value="" th:value="${session.user.username}" required>
+                  <input type="text" name="username" autocomplete="off" value="" th:value="${session.user.username}" required>
                </div>
              </div>
              <div class="field">
@@ -44,7 +44,7 @@
              <div class="field">
                <div class="ui left icon input">
                  <i class="user icon"></i>
-                 <input type="text" name="email" value="" th:value="${session.user.email}" required>
+                 <input type="text" name="email" autocomplete="off" value="" th:value="${session.user.email}" required>
                </div>
              </div>
              <div class="field">

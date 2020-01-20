@@ -590,13 +590,13 @@ h5,h6{font-size:1em;}
             <div class="field m-mobile-wide m-margin-bottom-small">
               <div class="ui left icon input">
                 <i class="user icon"></i>
-                <input type="text" name="nickname" placeholder="姓名" th:value="${session.user}!=null ? ${session.user.nickname}">
+                <input type="text" name="nickname" placeholder="姓名" autocomplete="off" th:value="${session.user}!=null ? ${session.user.nickname}">
               </div>
             </div>
             <div class="field m-mobile-wide m-margin-bottom-small">
               <div class="ui left icon input">
                 <i class="mail icon"></i>
-                <input type="text" name="email" placeholder="邮箱" th:value="${session.user}!=null ? ${session.user.email}">
+                <input type="text" name="email" placeholder="邮箱" autocomplete="off" th:value="${session.user}!=null ? ${session.user.email}">
               </div>
             </div>
             <div class="field  m-margin-bottom-small m-mobile-wide">
